@@ -5,6 +5,12 @@ using MySql.Data.MySqlClient;
 
 namespace ProductInfrastructure.Users {
     public class UserRepository : IUserRepository {
+        private readonly MySqlConnection con;
+
+        public UserRepository(MySqlConnection con) {
+            this.con = con;
+        }
+
         public User Find(UserId id) {
             using (var con = new MySqlConnection(Config.ConnectionString)) {
                 con.Open();
@@ -77,7 +83,6 @@ namespace ProductInfrastructure.Users {
         }
 
         public void Save(User user) {
-            Thread.Sleep(1000);
             using (var con = new MySqlConnection(Config.ConnectionString)) {
                 con.Open();
 

@@ -15,7 +15,7 @@ namespace InMemoryInfrastructure.Users {
         }
 
         public User Find(UserName name) {
-            return Enumerable.FirstOrDefault<User>(data.Values, x => x.UserName.Equals(name));
+            return data.Values.FirstOrDefault(x => x.UserName.Equals(name));
         }
 
         public IEnumerable<User> FindAll() {

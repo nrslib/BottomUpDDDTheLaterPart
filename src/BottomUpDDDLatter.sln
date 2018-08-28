@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{C6391B11-252A-4A70-9637-D1CE2D836761}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductInfrastructure", "ProductInfrastructure\ProductInfrastructure.csproj", "{359BC6A2-BFEA-4C07-92C9-C768FF2D6B84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductInfrastructure", "ProductInfrastructure\ProductInfrastructure.csproj", "{359BC6A2-BFEA-4C07-92C9-C768FF2D6B84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{D19F0794-F56B-408A-87C5-A6017D06D36A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{D19F0794-F56B-408A-87C5-A6017D06D36A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryInfrastructure", "InMemoryInfrastructure\InMemoryInfrastructure.csproj", "{73FCF21B-49BA-458B-96AE-9D545B6E2983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InMemoryInfrastructure", "InMemoryInfrastructure\InMemoryInfrastructure.csproj", "{73FCF21B-49BA-458B-96AE-9D545B6E2983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{9FAFE385-7467-404D-B24E-8800A197A67F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "WebApplication\WebApplication.csproj", "{9FAFE385-7467-404D-B24E-8800A197A67F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

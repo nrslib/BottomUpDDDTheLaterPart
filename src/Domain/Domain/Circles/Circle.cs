@@ -5,24 +5,24 @@ using Domain.Domain.Users;
 namespace Domain.Domain.Circles
 {
     public class Circle : IEquatable<Circle> {
+        private readonly CircleId id;
+        private string name;
+        private List<UserId> users;
+
         public Circle(
             CircleId id,
             string name,
-            List<User> users
+            List<UserId> users
         ) {
-            Id = id;
-            Name = name;
-            Users = users;
+            this.id = id;
+            this.name = name;
+            this.users = users;
         }
-
-        public CircleId Id { get; }
-        public string Name { get; }
-        public List<User> Users { get; }
 
         public bool Equals(Circle other) {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(Id, other.Id);
+            return Equals(id, other.id);
         }
 
         public override bool Equals(object obj) {
@@ -33,11 +33,20 @@ namespace Domain.Domain.Circles
         }
 
         public override int GetHashCode() {
-            return (Id != null ? Id.GetHashCode() : 0);
+            return (id != null ? id.GetHashCode() : 0);
         }
 
         public void Join(User user) {
-            Users.Add(user);
+            if (users.Count >= 30) {
+                throw new Exception("too many members.");
+            }
+            users.Add(user.Id);
+        }
+
+        public void Notify(ICircleNotification note) {
+            note.Id(id);
+            note.Name(name);
+            note.Users(new List<UserId>(users));
         }
     }
 }

@@ -46,7 +46,7 @@ namespace Domain.Application {
                     throw new Exception("user not found. userId: " + userId);
                 }
 
-                targetCircle.Users.Add(joinUser);
+                targetCircle.Join(joinUser); // targetCircle.Users.Add(joinUser); とは書けなくなりました
                 circleRepository.Save(targetCircle);
                 transaction.Complete();
             }

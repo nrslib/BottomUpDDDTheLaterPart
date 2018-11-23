@@ -8,18 +8,23 @@ namespace InMemoryInfrastructure.Users {
 
         public User Find(UserId id) {
             if (data.TryGetValue(id, out var target)) {
-                return target;
+                return cloneUser(target);
             } else {
                 return null;
             }
         }
 
         public User Find(UserName name) {
-            return data.Values.FirstOrDefault(x => x.UserName.Equals(name));
+            var target = data.Values.FirstOrDefault(x => x.UserName.Equals(name));
+            if (target != null) {
+                return cloneUser(target);
+            } else {
+                return null;
+            }
         }
 
         public IEnumerable<User> FindAll() {
-            return data.Values;
+            return data.Values.Select(cloneUser);
         }
 
         public void Save(User user) {
@@ -29,5 +34,9 @@ namespace InMemoryInfrastructure.Users {
         public void Remove(User user) {
             data.Remove(user.Id);
         }
-    }
+
+        private User cloneUser(User user) {
+            return new User(user.Id, user.UserName, user.Name);
+        }
+}
 }
